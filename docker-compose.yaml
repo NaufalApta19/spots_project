@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: apache/Dockerfile
+    container_name: spots_apache
+    ports:
+      - "8080:80" # Map port 80 to localhost:8080
+    volumes:
+      - ./projects:/var/www/html
+      - ./assets:/var/www/html/assets
+    depends_on:
+      - db
+    networks:
+      - spots_network
+
+
+  db:
+    image: mysql:5.7
+    container_name: spots_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: spots
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"
+    networks:
+      - spots_network
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - spots_network
+
+  dns:
+    image: andyshinn/dnsmasq:latest
+    container_name: dns_resolver
+    command: ["--address=/spots.local/127.0.0.1"]
+    ports:
+      - "53:53/udp"
+    networks:
+      - spots_network
+
+networks:
+  spots_network:
+    driver: bridge

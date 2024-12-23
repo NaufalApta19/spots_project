@@ -1,0 +1,129 @@
+
+
+.black-gradient {
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    color: orange;
+    margin-bottom: 20px;
+}
+
+#top-destinations,
+#interests {
+    margin: 40px 0;
+}
+
+.destination-container,
+.interest-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.destination-card,
+.interest-item {
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover,
+.interest-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.destination-card img {
+    width: 100%;
+    height: auto;
+}
+
+.destination-info {
+    padding: 15px;
+}
+
+.destination-info h3,
+.interest-item h3 {
+    color: orange;
+    margin-bottom: 10px;
+}
+
+.destination-info p,
+.interest-item p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.destination-info a {
+    color: orange;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.interest-icon {
+    font-size: 50px;
+    color: orange;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+}
+
+#trip-finder {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.trip-form {
+    background: rgba(34, 34, 34, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+}
+
+.trip-form h2 {
+    color: orange;
+    margin-bottom: 20px;
+}
+
+.trip-form label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.trip-form input,
+.trip-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #333;
+    color: white;
+}
+
+.trip-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.trip-form button:hover {
+    background-color: darkorange;
+}
+
